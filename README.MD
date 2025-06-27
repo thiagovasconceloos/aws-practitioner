@@ -115,3 +115,34 @@ AWS Serviços
 └── Amazon WorkSpaces
 └─ Desktop virtual na nuvem para usuários
 ```
+
+## 12. IAM: Usuários e Grupos
+- **IAM** = Gerenciamento de Identidade e Acesso, serviço global
+- A conta **root** é criada por padrão e não deve ser usada ou compartilhada
+- **Usuários** são pessoas dentro da sua organização e podem ser agrupadas
+- **Grupos** contêm apenas usuários, não podem conter outros grupos
+- **Usuários** não precisam pertencer a um grupo, e um usuário pode pertencer a vários grupos.
+
+### 13. IAM: Permissões
+Na AWS, usuários e grupos podem receber políticas, que são documentos no formato JSON usados para definir exatamente o que cada usuário ou grupo pode ou não fazer dentro do ambiente. Essas políticas controlam as permissões de acesso aos recursos da nuvem. Para manter a segurança e a boa prática de governança, a AWS adota o princípio do menor privilégio, que recomenda conceder apenas as permissões estritamente necessárias para que o usuário execute suas funções, evitando riscos e acessos indevidos.
+
+## 14. Estrutura de Políticas IAM (AWS)
+
+Uma política IAM (Identity and Access Management) é composta por:
+
+- **Version:** Versão da linguagem da política (sempre incluir `"2012-10-17"`)
+- **Id:** Identificador opcional da política
+- **Statement:** Uma ou mais declarações que definem permissões (obrigatório)
+
+#### 14.1 Estrutura de uma declaração (Statement)
+
+Cada `Statement` pode conter os seguintes elementos:
+
+- **Sid:** Identificador da declaração (opcional)
+- **Effect:** Define se a ação será **permitida (Allow)** ou **negada (Deny)**
+- **Principal:** Conta, usuário ou função (role) a quem a política se aplica
+- **Action:** Lista de ações que a política permite ou nega
+- **Resource:** Lista de recursos aos quais as ações se aplicam
+- **Condition:** Condições sob as quais a política entra em vigor (opcional)
+
+> Exemplo de uso: você pode criar uma política que permite a um usuário listar objetos em um bucket S3 específico, apenas se ele estiver usando autenticação MFA.
