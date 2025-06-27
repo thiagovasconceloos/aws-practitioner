@@ -1,7 +1,7 @@
 
-# Memória Completa AWS - Conteúdo Atualizado
+# Preparatorio - AWS Practitioner:
 
----
+
 
 ## 1. Vantagens da Computação em Nuvem
 
