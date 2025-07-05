@@ -146,3 +146,43 @@ Cada `Statement` pode conter os seguintes elementos:
 - **Condition:** Condições sob as quais a política entra em vigor (opcional)
 
 > Exemplo de uso: você pode criar uma política que permite a um usuário listar objetos em um bucket S3 específico, apenas se ele estiver usando autenticação MFA.
+
+
+## 15. IAM – Política de Senhas
+
+- Senhas fortes = maior segurança para sua conta
+- Na AWS, você pode configurar uma política de senhas:
+  - Definir um comprimento mínimo para a senha
+  - Exigir tipos específicos de caracteres:
+    - Letras maiúsculas
+    - Letras minúsculas
+    - Números
+    - Caracteres não alfanuméricos (ex: !, @, #, etc.)
+  - Permitir que todos os usuários IAM alterem suas próprias senhas
+  - Exigir que os usuários alterem suas senhas após um determinado tempo (expiração de senha)
+  - Impedir o reuso de senhas
+
+## 16 Autenticação Multifator – MFA
+
+- Os usuários têm acesso à sua conta e podem, possivelmente, alterar configurações ou excluir recursos na sua conta AWS.
+- Você quer proteger sua **conta Root e usuários IAM**
+- MFA = senha que **você sabe** + dispositivo de segurança que **você possui**
+
+### 16.1 Exemplo de fluxo de login com MFA:
+[Usuário: Alice] + [Senha] + [MFA] => [Login bem-sucedido]
+
+- **Principal benefício do MFA**:  
+  Se uma senha for roubada ou invadida, **a conta não será comprometida**
+
+## 17. Como os usuários acessam a AWS?
+
+- Para acessar a AWS, você tem três opções:
+  - **AWS Management Console** (protegido por senha + MFA)
+  - **AWS Command Line Interface (CLI)**: protegido por chaves de acesso
+  - **AWS Software Developer Kit (SDK)**: para código, protegido por chaves de acesso
+
+- As chaves de acesso são geradas através do Console da AWS
+- Os próprios usuários gerenciam suas chaves de acesso
+- **As chaves de acesso são secretas, assim como uma senha. Não compartilhe elas.**
+- **Access Key ID** é equivalente a um nome de usuário
+- **Secret Access Key** é equivalente a uma senha
